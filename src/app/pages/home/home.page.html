@@ -1,0 +1,74 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Aggressiver mapper
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <form [formGroup]="questionarioForm">
+      <!-- Nome -->
+      <ion-item>
+        <ion-label position="floating">Nome do desenvolvedor <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input require type="text" formControlName="usuario"></ion-input>
+      </ion-item>
+
+      <!-- Feature -->
+      <div id="form-column">
+
+        <!-- Select Modulo -->
+        <ion-item id="select-modulo">
+          <ion-label position="floating">Módulo <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-select [(ngModel)]="modulo" interface="popover" (ionChange)="selectModulo($event)"
+            formControlName="idModulo">
+            <ion-select-option *ngFor="let modulo of modulos" [value]="modulo.id">
+              {{ modulo.descricao }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item id="select-feature">
+          <ion-label position="floating">Feature <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-select [(ngModel)]="feature" interface="popover" (ionChange)="selectFeature($event)"
+            formControlName="idFeature">
+            <ion-select-option *ngFor="let feature of features" [value]="feature.id">
+              {{ feature.descricao }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
+
+      <!-- Perguntas Obrigatorias -->
+      <ion-item formArrayName="perguntas"
+        *ngFor="let item of questionarioForm.get('perguntas').controls; let i = index">
+
+        <ion-label position="floating">{{item.get('pergunta').value}}
+          <ion-text color="danger">*</ion-text>
+        </ion-label>
+
+        <div [formGroupName]="i">
+          <ion-textarea formControlName="resposta"></ion-textarea>
+        </div>
+      </ion-item>
+
+
+
+
+
+      <ion-item lines="none">
+        <ion-label>Perguntas</ion-label>
+        <ion-button slot="end" fill="clear" color="success" (click)="showModalQuestoes()">
+          Adicionar
+          <ion-icon name="add" slot="start"></ion-icon>
+        </ion-button>
+      </ion-item>
+
+    </form>
+    <ion-button id="btn-salvar" class="ion-margin-top" expand="block" (click)="save()">Salvar</ion-button>
+  </div>
+</ion-content>

@@ -225,4 +225,16 @@
 
     --ion-tab-bar-background: #1f1f1f;
   }
+  
 }
+
+.popover-viewport.sc-ion-popover-md, .popover-viewport.sc-ion-popover-ios {
+  overflow: hidden;
+}
+.popover-content.sc-ion-popover-md, .popover-content.sc-ion-popover-ios {
+  min-width: 300px;
+  max-width: 300px;
+ 
+}
+
+

@@ -1,0 +1,45 @@
+#container {
+  padding: 16px;
+  text-align: center;
+}
+
+#form-column {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+
+#select-modulo {
+  width: 50%;
+  margin-right: 16px;
+}
+
+#select-feature{
+  width: 50%;
+  
+}
+
+.add-pergunta {
+  display: flex;
+  align-items: center;
+}
+
+
+
+
+@media screen and(min-width: 767px){
+
+#container{
+width: 50%;
+margin: 65px auto;
+
+}
+#btn-salvar {
+  width: 30%;
+  margin-top: 56px;
+  float: right;
+
+}
+
+}

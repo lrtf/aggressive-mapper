@@ -1,5 +1,7 @@
 {
   "name": "Aggressive-mapper",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
